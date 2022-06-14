@@ -28,7 +28,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}), @UniqueConstraint(columnNames = {"phone_number"}), @UniqueConstraint(columnNames = "national_id")})
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"}), @UniqueConstraint(columnNames = {"phone_number"})})
 @OnDelete(action = OnDeleteAction.CASCADE)
 public class User extends InitiatorAudit {
     @Id
@@ -47,9 +47,6 @@ public class User extends InitiatorAudit {
 
     @Column(name = "email")
     private String email;
-
-    @Column(name = "national_id")
-    private String nationalId;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "gender")
@@ -80,31 +77,28 @@ public class User extends InitiatorAudit {
     @Column(name = "password")
     private String password;
 
-    public User(String firstName, String lastName, String phoneNumber, String email, String nationalId, EGender gender) {
+    public User(String firstName, String lastName, String phoneNumber, String email, EGender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.nationalId = nationalId;
         this.gender = gender;
     }
 
-    public User(String firstName, String lastName, String phoneNumber, String email, String nationalId, EGender gender, Set<Role> roles) {
+    public User(String firstName, String lastName, String phoneNumber, String email,EGender gender, Set<Role> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.nationalId = nationalId;
         this.gender = gender;
         this.roles = roles;
     }
 
-    public User(String firstName, String lastName, String phoneNumber, String email, String nationalId, EGender gender, EUserStatus status, Set<Role> roles, String password) {
+    public User(String firstName, String lastName, String phoneNumber, String email, EGender gender, EUserStatus status, Set<Role> roles, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.nationalId = nationalId;
         this.gender = gender;
         this.status = status;
         this.roles = roles;

@@ -3,8 +3,6 @@ package rw.auth.v1.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rw.auth.v1.enums.ERole;
-import rw.auth.v1.models.LocationAddress;
 
 import java.security.SecureRandom;
 import java.time.Month;

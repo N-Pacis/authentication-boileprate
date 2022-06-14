@@ -83,13 +83,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                         "/register-users",
                         "/api/v1/config/**",
                         "/**/*.js").permitAll()
-                .antMatchers(HttpMethod.GET,
-                        "/api/v1/location-address/provinces",
-                        "/api/v1/location-address/districts/province/**",
-                        "/api/v1/location-address/**",
-                        "/api/v1/location-address/**/**",
-                        "/api/v1/location-address/**/**/**"
-                ).permitAll()
                 .antMatchers(
                         "/api/v1/users/register",
                         "/api/v1/auth/verify-email",

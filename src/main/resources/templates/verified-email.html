@@ -45,7 +45,7 @@
         .template-container .content h1.title {
             font-family: "Nunito", sans-serif;
             font-size: 18px;
-            color: #1d5fad;
+            color: dodgerblue;
             font-weight: 900;
             margin-bottom: 10px;
         }
@@ -63,8 +63,8 @@
             margin: 20px 0;
             font-family: "Nunito", sans-serif;
             font-weight: 600;
-            font-size: 12px;
-            color: #8e8d8d;
+            font-size: 14px;
+            color: #8e8d8d !important;
         }
 
         .template-container .content .link-btn {
@@ -182,9 +182,8 @@
     <div class="content">
         <h1 class="title center">Hello , <span th:text="${name}"></span></h1>
         <p>
-            Thank you for choosing Our system. You have successfully approved your email.
-            you are going to wait for approval or rejection from the staff members incharge of you
-            wait for some time we will notify you when you are approved or rejected
+            Thank you for choosing <span th:text="${app_name}"></span>. You have successfully approved your email.
+           You can now login
         </p>
     </div>
 </div>

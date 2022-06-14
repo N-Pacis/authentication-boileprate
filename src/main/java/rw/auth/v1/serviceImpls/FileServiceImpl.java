@@ -66,9 +66,9 @@ public class FileServiceImpl implements IFileService {
         String documentSizeType = FileUtil.getFileSizeTypeFromFileSize(file.getSize());
         int documentSize = FileUtil.getFormattedFileSizeFromFileSize(file.getSize(), EFileSizeType.valueOf(documentSizeType));
 
-//        if (document.getSize() > 3 * 1024 * 1024) {
-//            throw new BadRequestException("You can't upload a file greater than 3 MegaBytes");
-//        }
+        if (document.getSize() > 5 * 1024 * 1024) {
+            throw new BadRequestException("You can't upload a file greater than 3 MegaBytes");
+        }
 
         try {
             if (!isValidExtension(fileName))

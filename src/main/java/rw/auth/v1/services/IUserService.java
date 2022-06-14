@@ -17,14 +17,6 @@ import java.util.UUID;
 
 public interface IUserService {
 
-    List<User> getAll();
-
-    Page<User> getAll(Pageable pageable);
-
-    Page<User> getAllActive(Pageable pageable);
-
-    Page<User> getAllRejected(Pageable pageable);
-
     User findById(UUID id);
 
     User create(User user);
@@ -33,23 +25,11 @@ public interface IUserService {
 
     User update(UUID id, User user);
 
-    boolean delete(UUID id);
-
     boolean isNotUnique(User user);
 
     boolean isNotUniqueInVerified(User user);
 
     void validateNewRegistration(User user);
-
-    List<User> getAllByRole(ERole role);
-
-    List<User> getAllByRoleAndActive(ERole role);
-
-    Page<User> getAllByRole(Pageable pageable, ERole role);
-
-    List<User> searchUser(String searchKey);
-
-    Page<User> searchUser(Pageable pageable, String searchKey);
 
     User getLoggedInUser();
 
@@ -57,33 +37,13 @@ public interface IUserService {
 
     User getByEmail(String email);
 
-    User approve(User user);
-
-    void approveManyUsers(List<UUID> userIds);
-
-    User reject(User user, String rejectionMessage);
-
-    void rejectManyUsers(List<UUID> userIds, String message);
-
-    User changeStatus(UUID id, EUserStatus status);
-
     void verifyEmail(String email, String activationCode);
 
     void verifyEmail(User user);
 
-    void deActivate(User user);
-
     User changeProfileImage(UUID id, File file);
 
-    Page<User> search(EUserStatus status, String name, EGender gender, Pageable pageable);
-
-    Page<User> search(Role role, EUserStatus status, String name, EGender gender, Pageable pageable);
-
     boolean isCodeValid(String email, String activationCode);
-
-    Integer countAllActive();
-
-    Integer countAllActiveByRole(Role role);
 
     void changePassword(ChangePasswordDTO dto);
 }

@@ -26,8 +26,8 @@ public class MailService {
     @Value("${spring.mail.username}")
     private String appEmail;
 
-    @Value("${frontend.login}")
-    private String link;
+    @Value("${swagger.app_name}")
+    private String appName;
 
     @Value("${client.host}")
     private String clientHost;
@@ -38,20 +38,9 @@ public class MailService {
         this.templateEngine = templateEngine;
     }
 
-    @Async
-    public void sendAccountRejectedMail(User user) {
-        Mail mail = new Mail(
-                "Sorry Your Account is rejected",
-                user.getFullName(), user.getEmail(),
-                "account-rejected",
-                user.getRejectionDescription());
-
-        sendEmail(mail);
-    }
-
-
     public void sendEmailVerifiedMail(User user) {
         Mail mail = new Mail(
+                appName,
                 "Successfully verified email",
                 user.getFullName(), user.getEmail(),
                 "verified-email",
@@ -63,10 +52,11 @@ public class MailService {
 
     @Async
     public void sendAccountVerificationEmail(User user) {
-        String link = clientHost + "/verify-email?email=" + user.getEmail() + "&code=" + user.getActivationCode();
+        String message =user.getActivationCode();
         Mail mail = new Mail(
-                "Welcome to The application .",
-                user.getFullName(), user.getEmail(), "verify-email", link);
+                appName,
+                "Welcome to "+appName,
+                user.getFullName(), user.getEmail(), "verify-email", message);
 
         System.out.println(mail);
         sendEmail(mail);
@@ -75,19 +65,9 @@ public class MailService {
     @Async
     public void sendWelcomeEmailMail(User user) {
         Mail mail = new Mail(
-                "Welcome to the Application, Your account is approved",
+                appName,
+                "Welcome to "+appName+"",
                 user.getFullName(), user.getEmail(), "welcome-email", user.getEmail());
-
-        sendEmail(mail);
-    }
-
-    @Async
-    public void sendCustomEmail(SendEmailDTO dto) {
-        Mail mail = new Mail(
-                dto.getSubject(),
-                dto.getNameOfRecipient(), dto.getEmailOfRecipient(), "custom-email", dto.getContent());
-
-        mail.setOtherData(dto.getSubject());
 
         sendEmail(mail);
     }
@@ -95,7 +75,8 @@ public class MailService {
     @Async
     public void sendResetPasswordMail(User user) {
         Mail mail = new Mail(
-                "Welcome to the Application, You requested to reset your password",
+                appName,
+                "Welcome to "+appName+", You requested to reset your password",
                 user.getFullName(), user.getEmail(), "reset-password-email", user.getActivationCode());
 
         sendEmail(mail);
@@ -108,9 +89,9 @@ public class MailService {
             MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
 
             Context context = new Context();
+            context.setVariable("app_name",mail.getAppName());
             context.setVariable("data", mail.getData());
             context.setVariable("name", mail.getFullNames());
-            context.setVariable("link", link);
             context.setVariable("otherData", mail.getOtherData());
 
             String html = templateEngine.process(mail.getTemplate(), context);

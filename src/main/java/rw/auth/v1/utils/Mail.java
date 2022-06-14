@@ -7,6 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class Mail {
 
+    private String appName;
+
     private String subject;
 
     private String fullNames;
@@ -19,7 +21,8 @@ public class Mail {
 
     private Object otherData;
 
-    public Mail(String subject, String fullNames, String toEmail, String template, Object data) {
+    public Mail(String appName, String subject, String fullNames, String toEmail, String template, Object data) {
+        this.appName = appName;
         this.subject = subject;
         this.fullNames = fullNames;
         this.toEmail = toEmail;
