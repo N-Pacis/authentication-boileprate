@@ -45,7 +45,7 @@
         .template-container .content h1.title {
             font-family: "Nunito", sans-serif;
             font-size: 18px;
-            color: #1d5fad;
+            color: dodgerblue;
             font-weight: 900;
             margin-bottom: 10px;
         }
@@ -63,8 +63,8 @@
             margin: 20px 0;
             font-family: "Nunito", sans-serif;
             font-weight: 600;
-            font-size: 12px;
-            color: #8e8d8d;
+            font-size: 14px;
+            color: #8e8d8d !important;
         }
 
         .template-container .content .link-btn {
@@ -168,6 +168,17 @@
             opacity: 1;
         }
 
+        .activation-code{
+            margin:2% 20% !important;
+            background-color: dodgerblue;
+            color: #fff !important;
+            padding: 2% 5% !important;
+            font-size:18px !important;
+            letter-spacing:2px;
+            text-align: center;
+            font-weight:bold;
+        }
+
         @media screen and (min-width: 992px) {
             .template-container .content {
                 min-width: 400px;
@@ -182,18 +193,13 @@
     <div class="content">
         <h1 class="title center">Hello , <span th:text="${name}"></span></h1>
         <p>
-            Thank you for choosing Our system. You have successfully created an
-            account in the system as you wished. Please click on the link below to
+            Thank you for choosing <span th:text="${app_name}"></span>. You have successfully created an
+            account in the system as you wished. Please copy the activation code below to
             verify your email address and complete your registration. Thank you.
         </p>
 
-        <div class="button-container">
-            <a th:href="${data}" class="link-btn center" target="_blank">Verify Your Email</a>
-        </div>
+        <div class="activation-code" th:text="${data}"></div>
 
-        Or copy the below link in the browser
-
-        <span th:text="${data}"></span>
     </div>
 </div>
 </body>
