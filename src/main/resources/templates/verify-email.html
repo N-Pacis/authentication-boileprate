@@ -5,10 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Account Rejected</title>
+    <title>Verify Email</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;900&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap");
+        @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
         * {
             margin: 0;
@@ -43,10 +42,9 @@
         }
 
         .template-container .content h1.title {
-            font-family: "Nunito", sans-serif;
+            font-family: "Lato", sans-serif;
             font-size: 18px;
-            color: dodgerblue;
-            font-weight: 900;
+            color: #19ac2c;
             margin-bottom: 10px;
         }
 
@@ -61,29 +59,11 @@
 
         .verify-email-paragraph {
             margin: 20px 0;
-            font-family: "Nunito", sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            color: #8e8d8d !important;
-        }
-
-        .template-container .content .link-btn {
-            background: #1d5fad;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-family: "Quicksand", sans-serif;
-            font-weight: bold;
-            font-size: 12.5px;
-            color: #ffffff;
-            text-decoration: none;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            margin: 0 auto;
-        }
-
-        .template-container .content p.link-text .link {
-            color: #437cbf;
+            font-family: "Lato", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #808080 !important;
         }
 
         .template-container .content .button-container {
@@ -96,7 +76,7 @@
             background: rgba(29, 95, 173, 0.2);
             border-radius: 5px;
             padding: 10px 20px;
-            font-family: "Montserrat", sans-serif;
+            font-family: "Lato", sans-serif;
             font-style: normal;
             font-weight: bold;
             font-size: 30px;
@@ -105,77 +85,15 @@
             letter-spacing: 3px;
         }
 
-
-        .template-container .code-form label {
-            font-family: "Quicksand", sans-serif;
-            font-weight: bold;
-            font-size: 12px;
-            color: #868585;
-        }
-
-        .template-container .code-form .code-inputs input::-webkit-outer-spin-button,
-        .template-container .code-form .code-inputs input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        .template-container .code-form .code-inputs input {
-            width: 15%;
-            color: #bab8b8;
-            border: none;
-            border-bottom: 1px solid #bab8b8;
-            outline: none;
-            text-align: center;
-            font-size: 20px;
-            -moz-appearance: textfield;
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            min-width: 140px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 10px;
-            position: absolute;
-            z-index: 1;
-            bottom: 120%;
-            left: 50%;
-            margin-left: -75px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip .tooltiptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
         .activation-code{
             margin:2% 20% !important;
-            background-color: dodgerblue;
+            background-color: #19ac2c;
             color: #fff !important;
             padding: 2% 5% !important;
-            font-size:18px !important;
-            letter-spacing:2px;
+            font-size:20px !important;
+            letter-spacing:4px;
             text-align: center;
+            font-family: cursive;
             font-weight:bold;
         }
 
@@ -191,14 +109,14 @@
 <body>
 <div class="template-container">
     <div class="content">
-        <h1 class="title center">Hello , <span th:text="${name}"></span></h1>
+        <h1 class="title center">Hello <span >Nkubito Pacis</span> ,</h1>
         <p class="verify-email-paragraph">
-            Thank you for choosing <span th:text="${app_name}"></span>. You have successfully created an
+            Thank you for choosing <span>Our system</span>. You have successfully created an
             account in the system as you wished. Please copy the activation code below to
             verify your email address and complete your registration. Thank you.
         </p>
 
-        <div class="activation-code" th:text="${data}"></div>
+        <div class="activation-code">56903</div>
 
     </div>
 </div>
