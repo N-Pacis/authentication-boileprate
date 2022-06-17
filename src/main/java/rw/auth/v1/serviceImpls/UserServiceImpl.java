@@ -158,7 +158,7 @@ public class UserServiceImpl implements IUserService {
         if (user.getStatus() != EUserStatus.WAIT_EMAIL_VERIFICATION)
             throw new BadRequestException("Your account is " + user.getStatus().toString().toLowerCase(Locale.ROOT));
 
-        user.setStatus(EUserStatus.PENDING);
+        user.setStatus(EUserStatus.ACTIVE);
 
         userRepository.save(user);
 

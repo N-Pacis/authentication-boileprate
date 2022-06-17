@@ -20,8 +20,8 @@ public class UpdateUserDTO {
     @NotBlank
     private String lastName;
 
-    @Pattern(regexp = "[0-9]{9,9}", message = "Your phone is not a valid tel we expect 07***")
-    private String phoneNumber;
+    @Pattern(regexp = "[0-9]{9,10}", message = "Your phone is not a valid tel we expect 07***")
+    private  String mobile;
 
     @NotNull
     private EGender gender;

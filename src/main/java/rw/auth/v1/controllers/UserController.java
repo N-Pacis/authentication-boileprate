@@ -61,12 +61,12 @@ public class UserController {
     }
 
     @PostMapping(path = "/register")
-    public ResponseEntity<ApiResponse> register(@RequestBody @Valid SignUpDTO dto) {
+    public ResponseEntity<ApiResponse> register(@Valid @RequestBody SignUpDTO dto) {
 
         User user = new User();
 
         String encodedPassword = bCryptPasswordEncoder.encode(dto.getPassword());
-        Role role = roleService.findByName(dto.getRole());
+        Role role = roleService.findByName(ERole.STANDARD);
 
         user.setEmail(dto.getEmail());
         user.setFirstName(dto.getFirstName());

@@ -58,7 +58,6 @@ public class MailService {
                 "Welcome to "+appName,
                 user.getFullName(), user.getEmail(), "verify-email", message);
 
-        System.out.println(mail);
         sendEmail(mail);
     }
 
@@ -101,7 +100,6 @@ public class MailService {
             helper.setFrom(appEmail);
             mailSender.send(message);
 
-            System.out.println(mail.getOtherData());
 
         } catch (MessagingException exception) {
             throw new BadRequestException("Failed To Send An Email");

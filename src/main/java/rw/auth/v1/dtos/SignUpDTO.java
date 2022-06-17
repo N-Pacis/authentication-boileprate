@@ -29,12 +29,10 @@ public class SignUpDTO {
     private  String lastName;
 
     @NotBlank
-    @Pattern(regexp = "[0-9]{9,12}", message = "Your phone is not a valid tel we expect 2507***, or 07*** or 7***")
+    @Pattern(regexp = "[0-9]{9,10}", message = "Your phone is not a valid tel we expect 07***")
     private  String mobile;
 
     private EGender gender;
-
-    private ERole role;
 
     @ValidPassword
     private  String password;

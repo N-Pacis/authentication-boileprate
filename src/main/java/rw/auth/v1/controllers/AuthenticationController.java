@@ -52,7 +52,6 @@ public class AuthenticationController {
             jwt = jwtTokenProvider.generateToken(authentication);
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
         }
 
         return ResponseEntity.ok(ApiResponse.success(new JWTAuthenticationResponse(jwt)));
