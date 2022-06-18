@@ -103,7 +103,7 @@ public class UserController {
         return Formatter.done();
     }
 
-    @GetMapping("/load-file/{filename:.+}")
+    @GetMapping("/files/load-file/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> loadProfileImage(@PathVariable String filename) {
 
